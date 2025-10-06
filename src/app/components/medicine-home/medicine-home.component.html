@@ -1,1 +1,23 @@
-<p>medicine-home works!</p>
+<div class="container">
+    <div class="mt-4">
+        <div class="float-start"><span class="fw-bolder fs-5">Shop By Category</span></div>
+        <div class="float-end">
+            <div class="d-grid gap-2 d-md-block">
+                <a class="cursor" (click)="scrollLeft()"> <i class="bi bi-arrow-left-circle fs-2"></i></a>
+                <a class="cursor" (click)="scrollRight()"><i class="bi bi-arrow-right-circle fs-2 ms-2"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="overflow-hidden mt-4" style="width: 1000px;">
+        <div #cardContainer class="d-flex flex-nowrap overflow-auto">
+            <div *ngFor="let category of visibleCategories" class="card me-3 flex-shrink-0" style="width: 150px; min-width: 150px;">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{category.categoryName}}</h5>
+                    <img [src]="category.categoryImageSlug[0]" class="card-img-top" alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
