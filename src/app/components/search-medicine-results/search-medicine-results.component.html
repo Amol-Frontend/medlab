@@ -1,0 +1,18 @@
+<div class="container">
+    <p class="fs-5 mt-4">Showing {{medicineList.length}} item(s) for <span class="fw-bold">{{searchResultText}}</span>
+    </p>
+
+    <div class="row">
+        <!-- <div class="col-md-2 mx-5 my-3" *ngFor="let item of medicineList"> -->
+            <div class="card mx-2 my-2" *ngFor="let item of medicineList" style="width: 12rem;height: 20rem;" >
+                <img [src]="item.productImageSlug[0]" class="card-img-top p-2" alt="..." height="200" width="200">
+                <div class="card-body">
+                    <p class="card-title truncate-title">{{item.drugname}}</p>
+                    <p class="card-text text-muted truncate-text">By {{item.brand}}</p>
+                    <p style="font-size: 14px;"><span class="text-decoration-line-through" > ₹{{item.actualPrice}} </span>  <span class="fw-bold"> ₹{{item.discountPrice}}</span> <span class="mx-1"><a class="btn btn-outline-primary btn-sm">Add</a>
+</span></p>
+                </div>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
