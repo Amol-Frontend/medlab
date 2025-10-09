@@ -1,11 +1,12 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { NgFor } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-medicine-home',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor,RouterLink],
   templateUrl: './medicine-home.component.html',
   styleUrl: './medicine-home.component.css'
 })
@@ -22,7 +23,7 @@ export class MedicineHomeComponent {
   @ViewChild('cardContainer',{static:false}) cardContainer!: ElementRef;
 
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService,private router:Router) {
 
   }
 
@@ -78,6 +79,11 @@ export class MedicineHomeComponent {
       this.startIndex++;
       this.visibleCategories = this.categoryList.slice(this.startIndex, this.startIndex + 6);
     }
+  }
+
+  navigateTo(catgeory:any){
+    let newCategory = catgeory.categoryName.trim().split(" ").join("-");
+    this.router.navigate(['order-medicines/category',newCategory+ "-" + catgeory.categoryId])
   }
 
 }

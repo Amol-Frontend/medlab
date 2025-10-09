@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="mt-4 clearfix">
+        <div class="float-start"><span class="fw-bolder fs-5">Shop By Category</span></div>
+        <div class="float-end">
+            <div class="d-grid gap-2 d-md-block">
+                <a class="cursor" (click)="scrollLeft()"> <i class="bi bi-arrow-left-circle fs-2"></i></a>
+                <a class="cursor" (click)="scrollRight()"><i class="bi bi-arrow-right-circle fs-2 ms-2"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row overflow-hidden mt-4 cursor">
+        <div class="d-flex flex-nowrap overflow-auto">
+            <!-- <div *ngFor="let category of visibleCategories" class="card me-3 flex-shrink-0" style="width: 150px; min-width: 150px;">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{category.categoryName}}</h5>
+                    <img [src]="category.categoryImageSlug[0]" class="card-img-top" alt="...">
+                </div>
+            </div> -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item cursor" *ngFor="let category of visibleCategories">
+                    <a class="nav-link text-secondary"
+                        [ngClass]="{'bg-primary active text-white': category.categoryId == selectedCategoryId}"
+                        (click)="getDetailsByCategory(category)">{{category.categoryName}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="card mx-2 my-2" *ngFor="let item of productList" style="width: 12rem;height: 20rem;">
+            <img [src]="item.productImageSlug[0]" class="card-img-top p-2" alt="..." height="200" width="200">
+            <div class="card-body">
+                <p class="card-title truncate-title">{{item.drugname}}</p>
+                <p class="card-text text-muted truncate-text">By {{item.brand}}</p>
+                <p style="font-size: 14px;"><span class="text-decoration-line-through"> ₹{{item.actualPrice}} </span>
+                    <span class="fw-bold"> ₹{{item.discountPrice}}</span> <span class="mx-1"><a
+                            class="btn btn-outline-primary btn-sm">Add</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
