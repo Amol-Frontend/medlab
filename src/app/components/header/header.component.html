@@ -15,7 +15,10 @@
                 </ul>
             </div>
             <div class="col-md-6">
-                <ul class="nav d-flex justify-content-center p-2">
+                <ul class="nav d-flex justify-content-center p-2 cursor">
+                    <li class="nav-item">
+                        <a class="nav-link link fs-6 fw-normal"><i class="bi bi-cart fw-bold fs-4"><span class="cart-count border border-2 rounded-circle px-2 py-1 bg-primary text-white" *ngIf="cartCount">{{cartCount}}</span></i></a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link link fs-6 fw-normal" href="#">About US</a>
                     </li>

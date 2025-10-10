@@ -36,7 +36,7 @@
                 <p class="card-text text-muted truncate-text">By {{item.brand}}</p>
                 <p style="font-size: 14px;"><span class="text-decoration-line-through"> ₹{{item.actualPrice}} </span>
                     <span class="fw-bold"> ₹{{item.discountPrice}}</span> <span class="mx-1"><a
-                            class="btn btn-outline-primary btn-sm">Add</a>
+                            class="btn btn-outline-primary btn-sm" (click)="addItemToCart(item)">Add</a>
                     </span>
                 </p>
             </div>

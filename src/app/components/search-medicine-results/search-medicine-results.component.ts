@@ -33,5 +33,9 @@ export class SearchMedicineResultsComponent {
       }
      })
     }
+
+    addItemToCart(medicine:any){
+      
+    }
   
 }

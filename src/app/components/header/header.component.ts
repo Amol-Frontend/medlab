@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, of, Subject, Subscription, switchMap } from 'rxjs';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Route, Router, RouterLink } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FormsModule,NgFor,RouterLink],
+  imports: [FormsModule,NgFor,RouterLink,NgIf],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -19,13 +20,19 @@ export class HeaderComponent {
 
   subject = new Subject();
 
-  subscription!:Subscription
+  subscription!:Subscription;
+  cartCount : number | null = null;
 
-  constructor(private dataService: DataService,private router:Router) {
+  constructor(private dataService: DataService,private router:Router,private cartService:CartService) {
 
   }
 
-  ngOnInit() {
+  ngOnInit() { 
+   this.cartCount = this.cartService.getCartDataFromLocalStorage().length; 
+   this.cartService.cartCountObs.subscribe((count:any)=> {
+    this.cartCount = count;
+   })
+
 this.subscription =   this.subject.pipe(debounceTime(300), distinctUntilChanged(), switchMap((searchKey: any) => {
       if (searchKey) {
         return this.dataService.getDataFromServer("medicines?q=" + this.searchText)
@@ -40,6 +47,8 @@ this.subscription =   this.subject.pipe(debounceTime(300), distinctUntilChanged(
           this.searchResults = [];
         }
     });
+
+
   }
 
 

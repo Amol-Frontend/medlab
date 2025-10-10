@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import { NgClass, NgFor } from '@angular/common';
 import { map } from 'rxjs';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-shop-by-category',
@@ -18,7 +19,7 @@ export class ShopByCategoryComponent {
   visibleCategories: any = [];
   startIndex: number = 0;
   productList: any = [];
-  constructor(private activatedRoute: ActivatedRoute, private dataService: DataService,private router:Router) {
+  constructor(private activatedRoute: ActivatedRoute, private dataService: DataService,private router:Router,private cart:CartService) {
 
   }
 
@@ -103,6 +104,10 @@ export class ShopByCategoryComponent {
 
       }
     })
+  }
+
+  addItemToCart(item:any){
+    this.cart.addToCart(item);
   }
 
 }
