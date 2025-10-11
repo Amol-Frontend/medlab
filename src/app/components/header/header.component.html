@@ -1,33 +1,67 @@
 <div class="row shadow-sm">
-    <div class="col-md-4 text-center p-3 fs-6 fw-bolder">
-        <a class="text-decoration-none m-2">Medlab</a>
-    </div>
+  <div class="col-md-4 text-center p-3 fs-6 fw-bolder">
+    <a class="text-decoration-none m-2">Medlab</a>
+  </div>
 
-    <div class="col-md-8">
-        <div class="row">
-            <div class="col-md-6 position-relative">
-                <div class="input-group mt-2">
-                    <input type="text" class="form-control" name="search" [(ngModel)]="searchText" (ngModelChange)="searchMedicines()" placeholder="Find medicines, health products & more...">
-                    <span class="input-group-text" id="basic-addon2"><i class="bi bi-search"></i></span>
-                </div>
-                <ul class="list-group position-absolute w-100 cursor" style="z-index: 1000;max-height: 400px; overflow-y: auto;">
-                    <li class="list-group-item cursor" *ngFor="let item of searchResults" (click)="redirectTo()">{{item.drugname}}</li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <ul class="nav d-flex justify-content-center p-2 cursor">
-                    <li class="nav-item">
-                        <a class="nav-link link fs-6 fw-normal"><i class="bi bi-cart fw-bold fs-4"><span class="cart-count border border-2 rounded-circle px-2 py-1 bg-primary text-white" *ngIf="cartCount">{{cartCount}}</span></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link fs-6 fw-normal" href="#">About US</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link fs-6 fw-normal" href="#">Login</a>
-                    </li>
-                </ul>
-            </div>
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-6 position-relative">
+        <div class="input-group mt-2">
+          <input type="text" class="form-control" name="search" [(ngModel)]="searchText"
+            (ngModelChange)="searchMedicines()" placeholder="Find medicines, health products & more...">
+          <span class="input-group-text" id="basic-addon2"><i class="bi bi-search"></i></span>
         </div>
-
+        <ul class="list-group position-absolute w-100 cursor"
+          style="z-index: 1000;max-height: 400px; overflow-y: auto;">
+          <li class="list-group-item cursor" *ngFor="let item of searchResults" (click)="redirectTo()">{{item.drugname}}
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul class="nav d-flex justify-content-center p-2 cursor">
+          <li class="nav-item">
+            <a class="nav-link link fs-6 fw-normal" (click)="openCart()"><i class="bi bi-cart fw-bold fs-4"><span
+                  class="cart-count border border-2 rounded-circle px-2 py-1 bg-primary text-white"
+                  *ngIf="cartCount">{{cartCount}}</span></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link fs-6 fw-normal" href="#">About US</a>
+          </li>
+          <li class="nav-item" *ngIf="!isUserLoggedIn">
+            <a class="nav-link link fs-6 fw-normal" href="#">Login</a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="isUserLoggedIn">
+            <a class="nav-link dropdown-toggle link fs-6 fw-normal" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              My Medlab Benefits
+            </a>
+            <ul class="dropdown-menu cursor" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item">Profile</a></li>
+              <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
+
+  </div>
+</div>
+
+
+<div class="modal" #loginModal tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-login (loginStatus)="getLoginStatus($event)"></app-login>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Login</button>
+      </div> -->
+    </div>
+  </div>
 </div>

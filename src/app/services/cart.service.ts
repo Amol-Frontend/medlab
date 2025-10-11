@@ -16,9 +16,7 @@ export class CartService {
 
 
   addToCart(item: any) {
-
     this.cartItems = this.getCartDataFromLocalStorage();
-
     this.cartItems.push(item);
     // add data in local storage
     let cartItemsStr = JSON.stringify(this.cartItems);

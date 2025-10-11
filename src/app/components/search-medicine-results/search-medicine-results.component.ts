@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import { NgFor } from '@angular/common';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-search-medicine-results',
@@ -14,7 +15,7 @@ export class SearchMedicineResultsComponent {
 
     searchResultText:string| null=null;
     medicineList:any = [];
-    constructor(private activateRoute:ActivatedRoute,private dataService:DataService){
+    constructor(private activateRoute:ActivatedRoute,private dataService:DataService,private cart:CartService){
        
     }
 
@@ -35,7 +36,7 @@ export class SearchMedicineResultsComponent {
     }
 
     addItemToCart(medicine:any){
-      
+       this.cart.addToCart(medicine);
     }
   
 }

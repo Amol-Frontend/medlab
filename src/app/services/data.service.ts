@@ -20,5 +20,11 @@ export class DataService {
     return this.http.get(url,{headers: this.httpHeaders});
   }
 
+  postDataFromServer(endPoint:string,reqData:any){
+    const url = this.baseUrl + endPoint;
+    //http://localhost:3000/get-category-list
+    return this.http.post(url,reqData,{headers: this.httpHeaders});
+  }
+
   
 }

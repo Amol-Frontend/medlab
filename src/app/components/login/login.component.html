@@ -1,0 +1,18 @@
+<div class="container py-2">
+    <form >
+        <div class="mb-3" *ngIf="!shotOtpField">
+            <label for="id1" class="form-label">Mobile Number</label>
+            <input type="text" class="form-control" id="id1" name="mobNo" [(ngModel)]="mobileNumber">
+            <div id="emailHelp" class="form-text">OTP will be shared for verification.</div>
+        </div>
+         <div class="mb-3" *ngIf="shotOtpField">
+            <label for="id1" class="form-label fs-6">Sent on  <span class="fw-bold"> +91-{{mobileNumber}}</span> <span class="cursor" (click)="editMobileNo()"> <i class="bi bi-pencil-square ms-2 fs-6"></i> </span> </label>
+            <input type="text" class="form-control" id="id2" name="mobNoOtp" [(ngModel)]="otp">
+        </div>
+        <button type="button" *ngIf="!shotOtpField" class="btn btn-primary" (click)="getOtp()">Login</button>
+         <button type="button" *ngIf="shotOtpField" class="btn btn-primary" (click)="verifyOtp()">Verify</button>
+
+         <p *ngIf="shotOtpField" class="mt-4 otp-timer">Resend OTP in {{otpTimer}}s</p>
+        <!-- <button type="button" class="btn btn-secondary ms-2">Close</button> -->
+    </form>
+</div>
