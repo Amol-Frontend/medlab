@@ -1,1 +1,88 @@
-<p>cart works!</p>
+<div class="container">
+    <div class="row mt-2">
+        <div class="col-md-7 py-3 border rounded">
+            <h6 class="text-muted">Items Summary ({{order.products.length}})</h6>
+            <div class="card mb-2" *ngFor="let product of order.products;let i=index">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img [src]="product.productImg" alt="" class="card-img-top" height="100" width="80">
+                        </div>
+                        <div class="col-md-8">
+                            <h6 class="card-text">{{product.productName}}</h6>
+                            <p class="card-text text-muted">{{product.brand}}</p>
+                            <p style="font-size: 14px;"><span class="text-decoration-line-through"> ₹{{product.actualPrice}} </span>
+                                <span class="fw-bold"> ₹{{product.discountPrice}}</span>
+                            </p>
+
+                            <div class="d-flex justify-content-between">
+                                <a class="cursor fs-6 text-secondary fw-bold">Remove</a>
+                                <a class="btn border border-2 p-2"><span class="mx-2" (click)="increase(i)"><i
+                                            class="bi bi-plus-circle fs-5"></i></span> {{product.quantity}} <span
+                                        class="mx-2" (click)="decrease(i)"><i class="bi bi-dash-circle fs-5"></i></span></a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-4">
+            <h6 class="mb-3">Delivery Choice</h6>
+
+            <div class="row cursor">
+                <div class="col-md-5 border rounded rounded-4 p-3 mb-2">
+                    <p class="mb-0"> <input type="radio" name="delivery" value="home" [(ngModel)]="order.deliveryType"> </p>
+                    <strong class="delivery"> Home Delivery</strong>
+                    <p class="text-muted  mb-0">24 to 48 Hrs</p>
+                </div>
+                <div class="col-md-5 border rounded p-3 mb-2 ms-2">
+                    <p class="mb-0"> <input type="radio" name="delivery" value="store" [(ngModel)]="order.deliveryType"></p>
+                    <strong class="delivery"> Store Pickup</strong>
+                    <p class="text-muted mb-0">6 to 48 Hrs</p>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-10 border p-2">
+                    <div class="d-flex justify-content-between">
+                        <strong class="delivery">Deliver to Home</strong>
+                        <a class="cursor fs-6">Change</a>
+                    </div>
+                </div>
+
+                <div class="col-md-10 p-2 mt-2">
+                    <h6>Bill Breakdown</h6>
+                    <div class="card border">
+                        <!-- <h5 class="card-header">Featured</h5> -->
+                        <div class="card-body">
+                            <p class="card-text d-flex justify-content-between">
+                                <span class="ms-2" style="font-size: 15px;">Total MRP</span>
+                                <span class="me-4">₹{{order.totalAmount}}</span>
+                            </p>
+                             <p class="card-text d-flex justify-content-between">
+                                <span class="ms-2" style="font-size: 15px;">Discount on MRP</span>
+                                <span class="me-4">-₹{{order.totalDiscount}}</span>
+                            </p>
+                            <hr>
+                             <p class="card-text d-flex justify-content-between">
+                                <span class="ms-2" style="font-size: 15px;">Estimated Total</span>
+                                <span class="me-4">₹{{order.finalAmount}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>
