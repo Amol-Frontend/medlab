@@ -38258,39 +38258,32 @@
       "id": 1
     },
     {
-      "mobileNumber": "9999911223",
+      "mobileNumber": "8989000011",
       "isValidOtp": true,
+      "userId": "5749",
       "id": 2
-    },
+    }
+  ],
+  "address": [
     {
-      "mobileNumber": "9999911223",
-      "isValidOtp": true,
-      "id": 3
-    },
-    {
-      "mobileNumber": "9999911223",
-      "isValidOtp": true,
-      "id": 4
-    },
-    {
-      "mobileNumber": "9999911223",
-      "isValidOtp": true,
-      "id": 5
-    },
-    {
-      "mobileNumber": "9999911223",
-      "isValidOtp": true,
-      "id": 6
-    },
-    {
-      "mobileNumber": "9999911223",
-      "isValidOtp": true,
-      "id": 7
-    },
-    {
-      "mobileNumber": "9999911223",
-      "isValidOtp": true,
-      "id": 8
+      "userId": "5749",
+      "addressList": [
+        {
+          "line1": "Address Line 1 ABC Society",
+          "line2": "Tower 21 Flat No 111",
+          "city": "Pune",
+          "state": "Maharashta",
+          "pincode": "11111"
+        },
+        {
+          "line1": "ABC Nagar DEF Society",
+          "line2": "Tower 21 Flat No 111",
+          "city": "Pune",
+          "state": "Maharashta",
+          "pincode": "111111"
+        }
+      ],
+      "id": 1
     }
   ]
 }

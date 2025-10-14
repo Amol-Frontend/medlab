@@ -55,10 +55,11 @@ export class LoginComponent {
       this.shotOtpField = false;
       this.otpTimer = null;
 
-      
+
       let reqObj = {
         "mobileNumber": this.mobileNumber,
-        "isValidOtp": true
+        "isValidOtp": true,
+        "userId": this.genereateUserId()
       }
 
       this.dataService.postDataFromServer("users", reqObj).subscribe({
@@ -66,6 +67,8 @@ export class LoginComponent {
           if (response) {
             const authToken = "ebcdef1223bhasher122331dadadwewq";
             localStorage.setItem("authToken", authToken);
+            const userId = response.userId;
+            localStorage.setItem("userId",userId);
            this.loginStatus.emit(true);
           }
         }
@@ -79,6 +82,10 @@ export class LoginComponent {
   }
 
   genereateOtp(){
+   return  Math.floor(1000 + Math.random() * 9000).toString();
+  }
+
+   genereateUserId(){
    return  Math.floor(1000 + Math.random() * 9000).toString();
   }
 }

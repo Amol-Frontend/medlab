@@ -26,5 +26,11 @@ export class DataService {
     return this.http.post(url,reqData,{headers: this.httpHeaders});
   }
 
+    putDataToerver(endPoint:string,reqData:any){
+    const url = this.baseUrl + endPoint;
+    //http://localhost:3000/get-category-list
+    return this.http.put(url,reqData,{headers: this.httpHeaders});
+  }
+
   
 }

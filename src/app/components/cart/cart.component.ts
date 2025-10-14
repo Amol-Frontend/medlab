@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DeliveryAddressComponent } from '../delivery-address/delivery-address.component';
+declare var bootstrap: any; // Declare bootstrap if not using a dedicated library
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [NgFor,FormsModule],
+  imports: [NgFor,FormsModule,DeliveryAddressComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -14,7 +16,9 @@ export class CartComponent {
 
 
   order :Order = new Order();
+  bootstrapModal: any;
 
+  @ViewChild('addressModal', { static: false }) addressModal!: ElementRef
 
   constructor(private cart:CartService){
 
@@ -70,6 +74,25 @@ export class CartComponent {
 
   decrease(index:number){
 
+  }
+
+
+  flag:boolean = false
+  addNewAddress(){
+    this.flag = true;
+  }
+
+  getSelAddress(address: any) {
+    this.order.addressDetails.addressLine1 = address.line1;
+    this.order.addressDetails.addressLine2 = address.line2;
+    this.order.addressDetails.city = address.city;
+    this.order.addressDetails.state = address.state;
+    this.order.addressDetails.pincode = address.pincode;
+    this.bootstrapModal.hide();
+  }
+
+    ngAfterViewInit() {
+    this.bootstrapModal = new bootstrap.Modal(this.addressModal.nativeElement);
   }
 
 }

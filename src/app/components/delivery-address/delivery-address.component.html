@@ -1,0 +1,40 @@
+<div class="container" *ngIf="!addNewAddress">
+    <div class="row" *ngFor="let address of addressList">
+        <div class="col-md-11">
+            <h6></h6>
+            <p>{{address.line1}}&nbsp;{{address.line2}}&nbsp;{{address.city}}&nbsp;{{address.state}}&nbsp;{{address.pincode}}&nbsp;</p>
+        </div>
+        <div class="col-md-1">
+            <a class="cursor" (click)="selectAddress(address)">Select</a>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<div class="container" *ngIf="addNewAddress">
+    <form [formGroup]="addressForm" (ngSubmit)="saveAddress()">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Address Line 1</label>
+            <input type="text" class="form-control" id="id5" formControlName="line1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Address Line 2</label>
+            <input type="text" class="form-control" id="id1" formControlName="line2">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">City</label>
+            <input type="text" class="form-control" id="id2" formControlName="city">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">State</label>
+            <input type="text" class="form-control" id="id3" formControlName="state">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Pincode</label>
+            <input type="text" class="form-control" id="id4" formControlName="pincode">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary ms-2" (click)="addNewAddress = false">Cancel</button>
+    </form>
+</div>
