@@ -1,0 +1,32 @@
+<div class="container">
+    <form [formGroup]="patientForm" (ngSubmit)="addPatient()">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Patient Name</label>
+            <input type="text" class="form-control" id="id5" formControlName="patientName">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Email</label>
+            <input type="text" class="form-control" id="id1" formControlName="email">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Mobile No</label>
+            <input type="text" class="form-control" id="id2" formControlName="mobileNo">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Relation</label>
+            <select class="form-select" formControlName="relationShipType">
+                <option *ngFor="let relation of relationShipList" [value]="relation.value">{{relation.viewValue}}
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Gender</label>
+            <select class="form-select" formControlName="gender">
+                <option *ngFor="let relation of genderList" [value]="relation.value">{{relation.viewValue}}</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary ms-2">Cancel</button>
+    </form>
+</div>

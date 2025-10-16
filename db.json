@@ -38285,5 +38285,37 @@
       ],
       "id": 1
     }
+  ],
+  "patients": [
+    {
+      "userId": "5749",
+      "patientList": [
+        {
+          "patientName": "john",
+          "email": "john@gmail.com",
+          "mobileNo": "9999112223",
+          "relationShipType": "brother",
+          "gender": "male",
+          "isPatientSelected": false
+        },
+        {
+          "patientName": "Sam",
+          "email": "sam@gmail.com",
+          "mobileNo": "8888112233",
+          "relationShipType": "friend",
+          "gender": "male",
+          "isPatientSelected": false
+        },
+        {
+          "patientName": "David",
+          "email": "david@gmail.com",
+          "mobileNo": "8888112235",
+          "relationShipType": "friend",
+          "gender": "male",
+          "isPatientSelected": false
+        }
+      ],
+      "id": 1
+    }
   ]
 }

@@ -3,6 +3,7 @@ import { CartService } from '../../services/cart.service';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DeliveryAddressComponent } from '../delivery-address/delivery-address.component';
+import { Router } from '@angular/router';
 declare var bootstrap: any; // Declare bootstrap if not using a dedicated library
 
 @Component({
@@ -20,7 +21,7 @@ export class CartComponent {
 
   @ViewChild('addressModal', { static: false }) addressModal!: ElementRef
 
-  constructor(private cart:CartService){
+  constructor(private cart:CartService,private router:Router){
 
   }
 
@@ -91,6 +92,12 @@ export class CartComponent {
     this.bootstrapModal.hide();
   }
 
+
+  navigateTo(){
+    this.cart.setOrder(this.order);
+    this.router.navigate(['/patientDetails']);
+  }
+
     ngAfterViewInit() {
     this.bootstrapModal = new bootstrap.Modal(this.addressModal.nativeElement);
   }
@@ -103,6 +110,8 @@ export class Order {
   fullName!:string;
   mobileNo!:string;
   emailId!:string;
+  gender!:string;
+  relation!:string;
   totalAmount!:number;
   totalDiscount!:number;
   totalItems!:number;

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Order } from '../components/cart/cart.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ export class CartService {
    cartCount$ = new Subject();
    cartCountObs = this.cartCount$.asObservable();
  
+   order:Order = new Order();
+
 
   constructor() { }
 
@@ -40,7 +43,14 @@ export class CartService {
   }
 
 
+  setOrder(orderObj:any){
+    this.order = orderObj;
+  }
 
+
+getOrder(){
+  return this.order;
+}
 }
 
 
