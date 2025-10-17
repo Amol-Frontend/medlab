@@ -51,6 +51,12 @@ export class CartService {
 getOrder(){
   return this.order;
 }
+
+  clearCart() {
+    localStorage.removeItem("cart");
+    this.cartItems = [];
+    this.sendCartCount(this.cartItems.length);
+  }
 }
 
 

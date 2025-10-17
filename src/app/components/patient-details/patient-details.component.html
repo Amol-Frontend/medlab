@@ -32,7 +32,7 @@
         </div>
         <div class="col-md-1 p-2">
             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Add +</button>
+                data-bs-target="#addPatientModal">Add +</button>
         </div>
         <div class="col-md-4 border p-2">
             <h6>Bill Breakdown</h6>
@@ -41,16 +41,16 @@
                 <div class="card-body">
                     <p class="card-text d-flex justify-content-between">
                         <span class="ms-2" style="font-size: 15px;">Total MRP</span>
-                        <span class="me-4">₹{{order?.totalAmount}}</span>
+                        <span class="me-4">₹{{order?.totalAmount | number: '1.2-2' }}</span>
                     </p>
                     <p class="card-text d-flex justify-content-between">
                         <span class="ms-2" style="font-size: 15px;">Discount on MRP</span>
-                        <span class="me-4">-₹{{order?.totalDiscount}}</span>
+                        <span class="me-4">-₹{{order?.totalDiscount | number: '1.2-2' }}</span>
                     </p>
                     <hr>
                     <p class="card-text d-flex justify-content-between">
                         <span class="ms-2" style="font-size: 15px;">Estimated Total</span>
-                        <span class="me-4">₹{{order?.finalAmount}}</span>
+                        <span class="me-4">₹{{order?.finalAmount | number: '1.2-2' }}</span>
                     </p>
                 </div>
             </div>
@@ -61,7 +61,7 @@
 
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" id="addPatientModal" #addPatientModal tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -69,7 +69,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <app-add-patient-form></app-add-patient-form>
+                <app-add-patient-form (closeModal)="getModalStatus($event)"></app-add-patient-form>
             </div>
             <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

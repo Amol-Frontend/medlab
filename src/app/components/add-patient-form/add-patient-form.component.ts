@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DataService } from '../../services/data.service';
 import { NgFor, NgIf } from '@angular/common';
@@ -26,6 +26,9 @@ export class AddPatientFormComponent {
     { value : 'other', viewValue : 'Other'}
   ]
  loggedInUserId:string | null = null; 
+
+@Output()
+closeModal : EventEmitter<boolean> = new EventEmitter();
 
   constructor(private fb:FormBuilder,private dataService:DataService){
 
@@ -81,6 +84,7 @@ console.log("patient",this.patientForm.value);
       this.dataService.putDataToerver(endPoint, reqestObj).subscribe({
         next: (response: any) => {
           console.log("response");
+          this.closeModal.emit(true);
         },
         error: (error: any) => {
 
@@ -90,6 +94,7 @@ console.log("patient",this.patientForm.value);
       this.dataService.postDataFromServer("patients", reqestObj).subscribe({
         next: (response: any) => {
           console.log("response");
+           this.closeModal.emit(true);
         },
         error: (error: any) => {
 

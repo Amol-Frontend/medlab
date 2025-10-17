@@ -67,16 +67,16 @@
                         <div class="card-body">
                             <p class="card-text d-flex justify-content-between">
                                 <span class="ms-2" style="font-size: 15px;">Total MRP</span>
-                                <span class="me-4">₹{{order.totalAmount}}</span>
+                                <span class="me-4">₹{{order.totalAmount | number: '1.2-2' }}</span>
                             </p>
                              <p class="card-text d-flex justify-content-between">
                                 <span class="ms-2" style="font-size: 15px;">Discount on MRP</span>
-                                <span class="me-4">-₹{{order.totalDiscount}}</span>
+                                <span class="me-4">-₹{{order.totalDiscount | number: '1.2-2' }}</span>
                             </p>
                             <hr>
                              <p class="card-text d-flex justify-content-between">
                                 <span class="ms-2" style="font-size: 15px;">Estimated Total</span>
-                                <span class="me-4">₹{{order.finalAmount}}</span>
+                                <span class="me-4">₹{{order.finalAmount | number: '1.2-2' }}</span>
                             </p>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
 </div>
 
 
-<div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" id="addressModal" #addressModal tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">

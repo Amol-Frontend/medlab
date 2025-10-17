@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { NgFor } from '@angular/common';
+import { DecimalPipe, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DeliveryAddressComponent } from '../delivery-address/delivery-address.component';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ declare var bootstrap: any; // Declare bootstrap if not using a dedicated librar
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [NgFor,FormsModule,DeliveryAddressComponent],
+  imports: [NgFor,FormsModule,DeliveryAddressComponent,DecimalPipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })

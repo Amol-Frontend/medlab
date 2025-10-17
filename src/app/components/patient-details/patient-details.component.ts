@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { Order } from '../cart/cart.component';
 import { AddPatientFormComponent } from '../add-patient-form/add-patient-form.component';
-import { NgFor, NgIf } from '@angular/common';
+import { DecimalPipe, NgFor, NgIf } from '@angular/common';
 import { DataService } from '../../services/data.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+declare var bootstrap: any; // Declare bootstrap if not using a dedicated library
 
 @Component({
   selector: 'app-patient-details',
   standalone: true,
-  imports: [AddPatientFormComponent, NgIf, NgFor, FormsModule],
+  imports: [AddPatientFormComponent, NgIf, NgFor, FormsModule,DecimalPipe],
   templateUrl: './patient-details.component.html',
   styleUrl: './patient-details.component.css'
 })
@@ -22,6 +23,10 @@ export class PatientDetailsComponent {
   patientList: any = [];
   id: number | null = null;
   selectedPatientDetls: any = {};
+  @ViewChild('addPatientModal', { static: false }) addPatientModal!: ElementRef
+  bootstrapModal: any;
+
+
 
   constructor(private cart: CartService, private dataService: DataService,private router:Router) {
 
@@ -62,13 +67,29 @@ export class PatientDetailsComponent {
       this.order.mobileNo = this.selectedPatientDetls.mobileNo
       this.order.relation = this.selectedPatientDetls.relationShipType
       this.order.gender = this.selectedPatientDetls.gender;
+
+      this.cart.setOrder(this.order);
+
+      this.router.navigate(['/order-summary']);
     }
 
     //this.router.navigate(['/'])
   }
 
 
+  getModalStatus(flag:any){
+    if(flag){
+      this.bootstrapModal.hide();
+      this.getPatientList();
+    }
+  }
+
   addPatientForm() {
     this.showPatientForm = true;
   }
+
+    ngAfterViewInit() {
+    this.bootstrapModal = new bootstrap.Modal(this.addPatientModal.nativeElement);
+  }
+
 }

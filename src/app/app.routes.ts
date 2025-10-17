@@ -5,6 +5,7 @@ import { SearchMedicineResultsComponent } from './components/search-medicine-res
 import { ShopByCategoryComponent } from './components/shop-by-category/shop-by-category.component';
 import { CartComponent } from './components/cart/cart.component';
 import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
+import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 
 export const routes: Routes = [
     { path : 'home' , component :HomeComponent},
@@ -13,5 +14,6 @@ export const routes: Routes = [
      {path : 'order-medicines/category/:categoryName',component : ShopByCategoryComponent},
      { path : 'cart', component : CartComponent},
      {path : 'patientDetails',component:PatientDetailsComponent},
+     {path : 'order-summary', component : OrderSummaryComponent},
     { path : '', redirectTo : '/home', pathMatch : 'full'}
 ];

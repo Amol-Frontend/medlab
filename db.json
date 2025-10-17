@@ -38262,6 +38262,12 @@
       "isValidOtp": true,
       "userId": "5749",
       "id": 2
+    },
+    {
+      "mobileNumber": "8888112233",
+      "isValidOtp": true,
+      "userId": "2824",
+      "id": 3
     }
   ],
   "address": [
@@ -38284,6 +38290,19 @@
         }
       ],
       "id": 1
+    },
+    {
+      "userId": "2824",
+      "addressList": [
+        {
+          "line1": "Address Line 1 ABC Society",
+          "line2": "ghjkhjg",
+          "city": "Pune",
+          "state": "Maharashta",
+          "pincode": "111111"
+        }
+      ],
+      "id": 2
     }
   ],
   "patients": [
@@ -38316,6 +38335,218 @@
         }
       ],
       "id": 1
+    },
+    {
+      "userId": "2824",
+      "patientList": [
+        {
+          "patientName": "John",
+          "email": "john@gmail.com",
+          "mobileNo": "9999112233",
+          "relationShipType": "friend",
+          "gender": "male",
+          "isPatientSelected": false
+        },
+        {
+          "patientName": "Smith",
+          "email": "smith@gmail.com",
+          "mobileNo": "99999112233",
+          "relationShipType": "friend",
+          "gender": "male",
+          "isPatientSelected": false
+        }
+      ],
+      "id": 2
+    }
+  ],
+  "orders": [
+    {
+      "orderId": "518059",
+      "fullName": "David",
+      "mobileNo": "8888112235",
+      "emailId": "david@gmail.com",
+      "gender": "male",
+      "relation": "friend",
+      "totalAmount": 740.5,
+      "totalDiscount": 14.5,
+      "finalAmount": 726,
+      "deliveryType": "home",
+      "isPaymentCompleted": false,
+      "addressDetails": {
+        "city": "Pune",
+        "pincode": "11111",
+        "state": "Maharashta",
+        "addressLine1": "Address Line 1 ABC Society",
+        "addressLine2": "Tower 21 Flat No 111"
+      },
+      "products": [
+        {
+          "productName": "DIGENE MINT FLAVOUR SUGAR FREE BOTTLE OF 200ML GEL - 200ml Gel",
+          "productImg": "https://mb-meds-assets.medibuddy.in/medicineImages/10216381.jpg",
+          "actualPrice": 145,
+          "quantity": 2,
+          "drugCode": 10216381,
+          "discountPrice": 130.5,
+          "brand": "Abbott",
+          "type": "BOTTLE",
+          "totalPrice": 246.5,
+          "disocunt": 14.5
+        },
+        {
+          "productName": "Mazicad Tablet - 30 Tablet",
+          "productImg": "https://pharma.medibuddy.in/10061818/watermark/99bf1ffb-ba0c-491a-a68d-b4c2ec51fce2.png",
+          "actualPrice": 295,
+          "quantity": 1,
+          "drugCode": 10061818,
+          "discountPrice": 295,
+          "brand": "Nopex Healthcare",
+          "type": "STRIP",
+          "totalPrice": 295,
+          "disocunt": 0
+        },
+        {
+          "productName": "LIVEASY ALOE VERA REFRESHING AND CLEANSING FACE WIPE 72'S - 72 Wipes",
+          "productImg": "https://meds-otcstore-assets.medibuddy.in/OTC_New/1000055152.jpg",
+          "actualPrice": 199,
+          "quantity": 1,
+          "drugCode": 1000055152,
+          "discountPrice": 199,
+          "brand": "Indo Chem Laboratories",
+          "type": "PACKET",
+          "totalPrice": 199,
+          "disocunt": 0
+        }
+      ],
+      "id": 1
+    },
+    {
+      "orderId": "742426",
+      "fullName": "Sam",
+      "mobileNo": "8888112233",
+      "emailId": "sam@gmail.com",
+      "gender": "male",
+      "relation": "friend",
+      "totalAmount": 480,
+      "totalDiscount": 16,
+      "finalAmount": 464,
+      "deliveryType": "home",
+      "isPaymentCompleted": false,
+      "addressDetails": {
+        "city": "Pune",
+        "pincode": "11111",
+        "state": "Maharashta",
+        "addressLine1": "Address Line 1 ABC Society",
+        "addressLine2": "Tower 21 Flat No 111"
+      },
+      "products": [
+        {
+          "productName": "H & Q HAND SANITIZER 100 ML - 100ml Sanitizer",
+          "productImg": "https://mb-meds-assets.medibuddy.in/medicineImages/1000054890.jpg",
+          "actualPrice": 80,
+          "quantity": 6,
+          "drugCode": 1000054890,
+          "discountPrice": 64,
+          "brand": "H&Q Pharma Pvt Ltd",
+          "type": "BOTTLE",
+          "totalPrice": 368,
+          "disocunt": 16
+        },
+        {
+          "productName": "Paracip 650 Tablet - 10 Tablet",
+          "productImg": "https://pharma.medibuddy.in/369512/watermark/a1756797-466e-4d52-8607-333c2f495733.png",
+          "actualPrice": 22.4,
+          "quantity": 5,
+          "drugCode": 369512,
+          "discountPrice": 22.4,
+          "brand": "Cipla Ltd",
+          "type": "STRIP",
+          "totalPrice": 112,
+          "disocunt": 0
+        }
+      ],
+      "id": 2
+    },
+    {
+      "orderId": "768753",
+      "fullName": "John",
+      "mobileNo": "9999112233",
+      "emailId": "john@gmail.com",
+      "gender": "male",
+      "relation": "friend",
+      "totalAmount": 597,
+      "totalDiscount": 0,
+      "finalAmount": 597,
+      "deliveryType": "home",
+      "isPaymentCompleted": false,
+      "addressDetails": {
+        "city": "Pune",
+        "pincode": "111111",
+        "state": "Maharashta",
+        "addressLine1": "Address Line 1 ABC Society",
+        "addressLine2": "ghjkhjg"
+      },
+      "products": [
+        {
+          "productName": "LIVEASY ALOE VERA REFRESHING AND CLEANSING FACE WIPE 72'S - 72 Wipes",
+          "productImg": "https://meds-otcstore-assets.medibuddy.in/OTC_New/1000055152.jpg",
+          "actualPrice": 199,
+          "quantity": 3,
+          "drugCode": 1000055152,
+          "discountPrice": 199,
+          "brand": "Indo Chem Laboratories",
+          "type": "PACKET",
+          "totalPrice": 597,
+          "disocunt": 0
+        }
+      ],
+      "id": 3
+    },
+    {
+      "orderId": "248207",
+      "fullName": "John",
+      "mobileNo": "9999112233",
+      "emailId": "john@gmail.com",
+      "gender": "male",
+      "relation": "friend",
+      "totalAmount": 416.5,
+      "totalDiscount": 14.5,
+      "finalAmount": 402,
+      "deliveryType": "home",
+      "isPaymentCompleted": false,
+      "addressDetails": {
+        "city": "Pune",
+        "pincode": "111111",
+        "state": "Maharashta",
+        "addressLine1": "Address Line 1 ABC Society",
+        "addressLine2": "ghjkhjg"
+      },
+      "products": [
+        {
+          "productName": "DIGENE MINT FLAVOUR SUGAR FREE BOTTLE OF 200ML GEL - 200ml Gel",
+          "productImg": "https://mb-meds-assets.medibuddy.in/medicineImages/10216381.jpg",
+          "actualPrice": 145,
+          "quantity": 2,
+          "drugCode": 10216381,
+          "discountPrice": 130.5,
+          "brand": "Abbott",
+          "type": "BOTTLE",
+          "totalPrice": 246.5,
+          "disocunt": 14.5
+        },
+        {
+          "productName": "Colicaid Syrup - 60ml Syrup",
+          "productImg": "https://pharma.medibuddy.in/10200983/af05f1f0-3f1c-11ed-92c9-fbfb8d989286.jpg",
+          "actualPrice": 170,
+          "quantity": 1,
+          "drugCode": 10200983,
+          "discountPrice": 170,
+          "brand": "Meyer Organics Pvt Ltd",
+          "type": "BOTTLE",
+          "totalPrice": 170,
+          "disocunt": 0
+        }
+      ],
+      "id": 4
     }
   ]
 }
